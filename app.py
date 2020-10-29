@@ -9,7 +9,7 @@ def display_version(num):
     :param num: a float argument to display the current version of the app
     :return: a json output which displays the current version
     """
-    return jsonify({'The version is': num})
+    return jsonify({'The version of the app is': num})
 
 
 if __name__ == '__main__':
