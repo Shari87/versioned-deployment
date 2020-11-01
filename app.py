@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/<float:version>', methods=['GET']) 
 def disp_version(version):
     """
-    :param num: a float argument to display the current version of the app
+    :param version: a float argument to display the current version of the app
     :return: a json output which displays the current version
     """
     return jsonify({'The version of the app is': version})
