@@ -30,3 +30,19 @@ output "private_subnet_2_cidr" {
 output "private_subnet_3_cidr" {
     value = "${aws_subnet.private-subnet-3.id}"
 }
+
+output "private_subnets" {
+  value = [
+    aws_subnet.private-subnet-1.id,
+    aws_subnet.private-subnet-2.id,
+    aws_subnet.private-subnet-3.id,
+  ]
+}
+
+output "public_subnets" {
+  value = [
+    aws_subnet.public-subnet-1.id,
+    aws_subnet.public-subnet-2.id,
+    aws_subnet.public-subnet-3.id,
+  ]
+}
