@@ -26,7 +26,7 @@ data "template_file" "ecs_task_definition_template" {
     docker_image_url      = var.docker_image_url
     memory                = var.memory
     docker_container_port = var.docker_container_port
-    spring_profile        = var.spring_profile
+    flask_profile        =  var.flask_profile
     region                = var.region
   }
 }
@@ -166,6 +166,6 @@ resource "aws_alb_listener_rule" "ecs_alb_listener_rule" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "springbootapp_log_group" {
+resource "aws_cloudwatch_log_group" "flaskapp_log_group" {
   name = "${var.ecs_service_name}-LogGroup"
 }
