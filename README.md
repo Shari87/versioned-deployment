@@ -68,4 +68,29 @@ git clone https://github.com/Shari87/versioned-deployment.git
 python app.py or python3 app.py # depending on the python version running on the system
 ```
    * Post the run, please navigate to your browser and type http://0.0.0.0:5000, then the following output would be obtained if the run was successful
+   ![Selection_132](https://user-images.githubusercontent.com/49628483/98024259-0cfa6f00-1e2e-11eb-9dcf-b99a12401cea.png)
+   * On the console, you should see the following flask application running issuing the GET request:
    ![Selection_133](https://user-images.githubusercontent.com/49628483/98024235-05d36100-1e2e-11eb-8954-901664cbc413.png)
+
+3. To commission the infrastructure services on AWS, please navigate to the folder **/versioned-deployment/terraform/ecs_fargate/1-infrastructure**, then type the following commands in the order mentioned below:
+```bash
+terraform init -backend-config="infrastructure-prod.config" # This command will initialize the backend configuration and hold the terraform state values in the folder "PROD/infrastructure.tfstate"
+terraform apply -var-file="production.tfvars" # This command will basically create the entire infrastructure on AWS
+```
+   * On successfull commission of the infrastructure services, the following output would be obtained:
+   ![Selection_128](https://user-images.githubusercontent.com/49628483/98024385-403cfe00-1e2e-11eb-9104-dbc3ca8bd1f8.png)
+   * **Note**: Prior to commissioning the infrastructure, the user would have to configure aws on the command line interface to access the aws services:
+   ```bash
+   $ aws configure
+   AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+   AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+   Default region name [None]: us-west-2
+   Default output format [None]: json
+   # The values input here can be empty as well and the user just has to keep pressing "ENTER"
+   ```
+4. To commission the platform services on AWS, please navigate to the folder **/versioned-deployment/terraform/ecs_fargate/2-platform**,then type the following command:
+```bash
+terraform apply -var-file="production.tfvars" # This command will basically create the entire infrastructure on AWS
+```
+   * On successfull commission of the platform services, the following output would be obtained:
+   ![Selection_129](https://user-images.githubusercontent.com/49628483/98024330-2a2f3d80-1e2e-11eb-8933-d4470085b8be.png)
