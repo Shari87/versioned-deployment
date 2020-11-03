@@ -23,7 +23,8 @@ The framework comprises of a main folder called terraform/ecs_fargate. Please na
      * **platform-prod.config**: This file defines our remote state configuration for the platform which we are creating
      * **ecs.tf**: This file defines the following resources for our platform:
        * Creating the ECS cluster
-       * Creating Application Load Balancer with security group referenced from ** securitygroups.tf ** for our ECS cluster
+       * Creating Application Load Balancer with security group referenced from 
+       ** securitygroups.tf ** for our ECS cluster
        * Creating our own HTTPS Domain SSL certificate and validating the same for our ECS cluster
        * Adding Route53 record for ALB Domain Name
        * Creating a default target group for our ECS cluster
