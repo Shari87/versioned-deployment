@@ -58,4 +58,14 @@ Following packages need to be installed in order to get the framework up and run
 pip install awscli
 ```
 # Usage
-To get the framework up and running on the local system. 
+To get the framework up and running on the local system. Please follow the below instructions:
+1. Initially, clone the repository to your local system using the command
+```bash
+git clone https://github.com/Shari87/versioned-deployment.git
+```
+2. To run the python application **app.py** locally, navigate to the folder **/versioned-deployment/terraform/ecs_fargate/3-application/infrastructure**, then run the script using the command on CLI
+```bash
+python app.py or python3 app.py # depending on the python version running on the system
+```
+   * Post the run, please navigate to your browser and type http://0.0.0.0:5000, then the following output would be obtained if the run was successful
+   ![Selection_133](https://user-images.githubusercontent.com/49628483/98024235-05d36100-1e2e-11eb-8954-901664cbc413.png)
