@@ -9,6 +9,12 @@
 The framework comprises of a main folder called terraform/ecs_fargate. Please navigate to this folder and you will see that the framework is further sub-divided into 3 layers:
 1. 1-infrastructure
    * This folder defines the vpc and other basic network configurations for our public and private subnets
+     * infrastructure-prod.config: This file defines our remote state configuration for the infrastructure which we are creating
+     * vpc.tf: This file defines our 
+        - Public & Private subnets 
+        - The route tables and its association with its respective public and private subnets
+        - Association of NAT-Gateway with private subnet
+        - Association of Internet Gateway with the VPC
 2. 2-platform
    * This folder defines our ecs cluster, route53 domain and other related services 
 3. 3.application
