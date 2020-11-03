@@ -17,6 +17,7 @@ The framework comprises of a main folder called terraform/ecs_fargate. Please na
         - Association of Internet Gateway with the VPC
      * **variables.tf**: This file defines the variable names which would be used in production.tfvars
      * **production.tfvars**: File used to pass the values for our vpc and cidr_blocks
+     * **outputs.tf**: File used to output the variables defined in **variables.tf** on the console
 2. **2-platform**
    * This folder defines our ecs cluster, route53 domain and other related services 
 3. **3-application**
