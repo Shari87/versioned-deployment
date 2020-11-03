@@ -92,9 +92,9 @@ resource "aws_security_group" "app_security_group" {
   vpc_id      = data.terraform_remote_state.platform.outputs.vpc_id
 
   ingress {
-    from_port = 5000
+    from_port = 8080
     protocol  = "TCP"
-    to_port   = 5000
+    to_port   = 8080
     cidr_blocks = [data.terraform_remote_state.platform.outputs.vpc_cidr_block]
   }
 
@@ -161,9 +161,11 @@ resource "aws_alb_listener_rule" "ecs_alb_listener_rule" {
   }
 
   condition {
-    field  = "host-header"
-    values = ["${lower(var.ecs_service_name)}.${data.terraform_remote_state.platform.outputs.ecs_domain_name}"]
+    host_header {
+      values = ["${lower(var.ecs_service_name)}.${data.terraform_remote_state.platform.outputs.ecs_domain_name}"]
+    }
   }
+
 }
 
 resource "aws_cloudwatch_log_group" "flaskapp_log_group" {
