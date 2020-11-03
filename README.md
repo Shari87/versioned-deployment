@@ -19,6 +19,6 @@ The framework comprises of a main folder called terraform/ecs_fargate. Please na
      * **production.tfvars**: File used to pass the values for our vpc and cidr_blocks
 2. **2-platform**
    * This folder defines our ecs cluster, route53 domain and other related services 
-3. **3.application**
+3. **3-application**
    * This folder defines our task definition for our ecs cluster, fargate application and other related services to our flask-python application
 # Installation
