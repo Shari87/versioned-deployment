@@ -6,5 +6,5 @@ remote_state_bucket = "ecs-fargate-rem-state"
 ecs_service_name = "flaskapp"
 docker_container_port = 5000
 desired_task_number = "2"
-spring_profile = "default"
+flask_profile = "default"
 memory = 1024
