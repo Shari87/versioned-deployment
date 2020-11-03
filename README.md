@@ -6,4 +6,11 @@
 # Project Architecture
 ![Blank diagram](https://user-images.githubusercontent.com/49628483/97487257-a46d4700-1982-11eb-975f-6e1ba4866d25.jpeg)
 # Setup
+The framework comprises of a main folder called terraform/ecs_fargate. Please navigate to this folder and you will see that the framework is further sub-divided into 3 layers:
+1. 1-infrastructure
+   * This folder defines the vpc and other basic network configurations for our public and private subnets
+2. 2-platform
+   * This folder defines our ecs cluster, route53 domain and other related services 
+3. 3.application
+   * This folder defines our task definition for our ecs cluster, fargate application and other related services to our flask-python application
 # Installation
