@@ -47,4 +47,8 @@ The framework comprises of a main folder called **terraform/ecs_fargate**. Pleas
         * Creating ECS service
         * Creating ALB listener rule for ECS service
         * Creating CloudWatch log group for ECS service
+     * **app.py** A simple restful python application which displays the current version on copying the url 
 # Installation
+Following packages need to be installed in order to get the frameowork up and running on the system:
+1. Download Terraform for linux [terraform]https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip from the highlighted link
+2. Docker for 
