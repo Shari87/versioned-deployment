@@ -8,7 +8,7 @@
         "value": "${flask_profile}"
       }],
       "portMappings": [{
-        "containerPort": "${docker_container_port}"
+        "containerPort": 5000
       }],
       "logConfiguration": {
         "logDriver": "awslogs",
