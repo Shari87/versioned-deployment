@@ -140,7 +140,7 @@ resource "aws_ecs_service" "ecs_service" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets          = [data.terraform_remote_state.platform.outputs.ecs_public_subnets]
+    subnets          = data.terraform_remote_state.platform.outputs.ecs_public_subnets
     security_groups  = [aws_security_group.app_security_group.id]
     assign_public_ip = true
   }
