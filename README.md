@@ -31,8 +31,8 @@ The framework comprises of a main folder called **terraform/ecs_fargate**. Pleas
        * Creating and HTTPS ALB listener for load balancer for our ECS cluster
        * Creating IAM policy for our ECS cluster
        * Attaching IAM policy to ECS cluster role
-     * **securitygroups.tf**: This file used to define the security group for ALB to route traffic to our ECS cluster
-     * **domain.tf**: This file used to create our domain certificate, and also for validating the SSL certificate
+     * **securitygroups.tf**: This file is used to define the security group for ALB to route traffic to our ECS cluster
+     * **domain.tf**: This file is used to create our domain certificate, and also for validating the SSL certificate
      * **variables.tf**: This file defines the variable names which would be used in production.tfvars
      * **production.tfvars**: File used to pass the values for our ecs domain name, ecs cluster name and internet cidr blocks
      * **outputs.tf**: File used to output the values of the variables defined in **variables.tf** on the console 
@@ -77,7 +77,7 @@ python app.py or python3 app.py # depending on the python version running on the
 terraform init -backend-config="infrastructure-prod.config" # This command will initialize the backend configuration and hold the terraform state values in the folder "PROD/infrastructure.tfstate"
 terraform apply -var-file="production.tfvars" # This command will basically create the entire infrastructure on AWS
 ```
-   * On successfull commission of the infrastructure services, the following output would be obtained:
+   * On successful commission of the infrastructure services, the following output would be obtained:
    ![Selection_128](https://user-images.githubusercontent.com/49628483/98024385-403cfe00-1e2e-11eb-9104-dbc3ca8bd1f8.png)
    * **Note**: Prior to commissioning the infrastructure, the user would have to configure aws on the command line interface to access the aws services:
    ```bash
@@ -92,5 +92,16 @@ terraform apply -var-file="production.tfvars" # This command will basically crea
 ```bash
 terraform apply -var-file="production.tfvars" # This command will basically create the entire infrastructure on AWS
 ```
-   * On successfull commission of the platform services, the following output would be obtained:
+   * On successful commission of the platform services, the following output would be obtained:
    ![Selection_129](https://user-images.githubusercontent.com/49628483/98024330-2a2f3d80-1e2e-11eb-8933-d4470085b8be.png)
+5. To commission the application services on AWS, please navigate to the folder **/versioned-deployment/terraform/ecs_fargate/3-application/infrastructure**,then run the deployment shell script **deploy.sh** in the following order from the command line:
+```bash
+sh deploy.sh dockerize # This command would basically dockerize the flask application and push the application to the ECR repository
+```
+   * On successful dockerizing of the application, the following output would be obtained:
+   ![Selection_131](https://user-images.githubusercontent.com/49628483/98024284-18e63100-1e2e-11eb-8f0f-cb6dd854af40.png)
+```bash
+sh deploy.sh deploy # This command would basically deploy the application on to ECS fargate
+```
+   * On successful deployment of the application, the following output would be obtained:
+   ![Selection_130](https://user-images.githubusercontent.com/49628483/98034118-7f724b80-1e3c-11eb-9ddf-8a315c1ecfce.png)
