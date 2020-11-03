@@ -6,10 +6,10 @@
 # Project Architecture
 ![Blank diagram](https://user-images.githubusercontent.com/49628483/97487257-a46d4700-1982-11eb-975f-6e1ba4866d25.jpeg)
 # Setup
-The framework comprises of a main folder called terraform/ecs_fargate. Please navigate to this folder and you will see that the framework is further sub-divided into 3 layers:
+The framework comprises of a main folder called **terraform/ecs_fargate**. Please navigate to this folder and you will see that the framework is further sub-divided into 3 layers:
 1. **1-infrastructure**
    * This folder defines the vpc and other basic network configurations for our public and private subnets
-     * **infrastructure-prod.config**: This file defines our remote state configuration for the infrastructure which we are creating
+     * **infrastructure-prod.config**: This file defines our remote state configuration for the infrastructure we are creating on AWS
      * **vpc.tf** : This file defines our 
         - Public & Private subnets 
         - The route tables and its association with its respective public and private subnets
@@ -20,7 +20,7 @@ The framework comprises of a main folder called terraform/ecs_fargate. Please na
      * **outputs.tf**: File used to output the values of the variables defined in **variables.tf** on the console
 2. **2-platform**
    * This folder defines our ecs cluster, route53 domain and other related services
-     * **platform-prod.config**: This file defines our remote state configuration for the platform which we are creating
+     * **platform-prod.config**: This file defines our remote state configuration for the platform  we are creating on AWS
      * **ecs.tf**: This file defines the following resources for our platform:
        * Creating the ECS cluster
        * Creating Application Load Balancer with security group referenced from 
@@ -38,4 +38,13 @@ The framework comprises of a main folder called terraform/ecs_fargate. Please na
      * **outputs.tf**: File used to output the values of the variables defined in **variables.tf** on the console 
 3. **3-application**
    * This folder defines our task definition for our ecs cluster, fargate application and other related services to our flask-python application
+     * **app-prod.config**: This file defines the backend and reads the remote state for layer 2 infrastructure
+     * **app.tf**: This file defines the following resources for our application:
+        * Creating the ECS task definition and resolving template
+        * Creating IAM task and execution role and policy for ECS tasks
+        * Creating security group for ECS service
+        * Creating ALB target group for ECS service
+        * Creating ECS service
+        * Creating ALB listener rule for ECS service
+        * Creating CloudWatch log group for ECS service
 # Installation
