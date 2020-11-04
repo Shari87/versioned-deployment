@@ -28,7 +28,7 @@ The framework comprises of a main folder called **terraform/ecs_fargate**. Pleas
        * Creating our own HTTPS Domain SSL certificate and validating the same for our ECS cluster
        * Adding Route53 record for ALB Domain Name
        * Creating a default target group for our ECS cluster
-       * Creating and HTTPS ALB listener for load balancer for our ECS cluster
+       * Creating HTTPS ALB listener for load balancer for our ECS cluster
        * Creating IAM policy for our ECS cluster
        * Attaching IAM policy to ECS cluster role
      * **securitygroups.tf**: This file is used to define the security group for ALB to route traffic to our ECS cluster
