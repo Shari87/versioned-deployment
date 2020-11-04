@@ -88,12 +88,29 @@ terraform apply -var-file="production.tfvars" # This command will basically crea
    Default output format [None]: json
    # The values input here can be empty as well and the user just has to keep pressing "ENTER"
    ```
+To destroy the infrastructure services commissioned on AWS, please type the following command on the command line:
+```bash
+terraform destroy -var-file="production.tfvars"
+``` 
+   * On successful de-commissioning of the infrastructure services, the following output would be obtained:
+   ![Selection_134](https://user-images.githubusercontent.com/49628483/98078136-811d2d00-1e97-11eb-83cd-d0f7e6aff40c.png)
+   ![Selection_135](https://user-images.githubusercontent.com/49628483/98078070-621e9b00-1e97-11eb-9f5c-7c82e991cb14.png)
+   
+
 4. To commission the platform services on AWS, please navigate to the folder **/versioned-deployment/terraform/ecs_fargate/2-platform**,then type the following command:
 ```bash
 terraform apply -var-file="production.tfvars" # This command will basically create the entire infrastructure on AWS
 ```
-   * On successful commission of the platform services, the following output would be obtained:
+   * On successful commissioning of the platform services, the following output would be obtained:
    ![Selection_129](https://user-images.githubusercontent.com/49628483/98024330-2a2f3d80-1e2e-11eb-8933-d4470085b8be.png)
+To destroy the platform services commissioned on AWS, please type the following command on the command line:
+```bash
+terraform destroy -var-file="production.tfvars"
+```
+   * On successful de-commissioning of the platform services, the following output would be obtained:
+   ![Selection_136](https://user-images.githubusercontent.com/49628483/98077826-f3d9d880-1e96-11eb-9717-8924ce77d293.png)
+   ![Selection_138](https://user-images.githubusercontent.com/49628483/98089981-7c617480-1ea9-11eb-9e8f-c24a008fb20f.png)
+
 5. To commission the application services on AWS, please navigate to the folder **/versioned-deployment/terraform/ecs_fargate/3-application/infrastructure**,then run the deployment shell script **deploy.sh** in the following order from the command line:
 ```bash
 sh deploy.sh dockerize # This command would basically dockerize the flask application and push the application to the ECR repository
